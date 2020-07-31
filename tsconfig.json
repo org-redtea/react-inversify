@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "declaration": true,
+    "module": "ES2015",
+    "declarationDir": "./types",
+    "outDir": "./esnext",
+    "rootDir": "./src"
+  },
+  "include": [
+    "./src/**/*.tsx",
+    "./src/**/*.ts"
+  ]
+}
