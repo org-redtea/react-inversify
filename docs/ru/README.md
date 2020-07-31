@@ -65,9 +65,9 @@ ReactDOM.render(<App container={container} />, document.getElementById('root'));
  * [useService(id)](#useallservicesid)
  * [useAllServices(id)](#useallservicesid)
  * [useNamedService(id, named)](#usenamedserviceid-named)
- * [useAllNamedServices(id, named)](#useallnamedserviceid-named)
+ * [useAllNamedServices(id, named)](#useallnamedservicesid-named)
  * [useTaggedService(id, key, value)](#usetaggedserviceid-key-value)
- * [useAllTaggedServices(id, key, value)](#usealltaggedserviceid-key-value)
+ * [useAllTaggedServices(id, key, value)](#usealltaggedservicesid-key-value)
  * [useResolve(constructor)](#useresolveconstructor)
 
 #### useContainer()
@@ -144,7 +144,7 @@ function ReactComponent(props: {}) {
 }
 ```
 
-#### useAllNamedService(id, named)
+#### useAllNamedServices(id, named)
 
 [↑ back](#hooks)
 
@@ -180,7 +180,7 @@ function ReactComponent(props: {}) {
 }
 ```
 
-#### useAllTaggedService(id, key, value)
+#### useAllTaggedServices(id, key, value)
 
 [↑ back](#hooks)
 
