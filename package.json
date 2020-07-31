@@ -1,6 +1,6 @@
 {
   "name": "@redtea/react-inversify",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Collection of decorators and hooks for interaction with InversifyJS container within React components",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
