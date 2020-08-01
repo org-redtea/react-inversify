@@ -54,7 +54,7 @@ const App: React.FC<{container: Container}> = (props) => (
 
 const container = new Container();
 
-// ...bind services to container
+// ...binding services to container
 
 ReactDOM.render(<App container={container} />, document.getElementById('root'));
 ```
@@ -62,7 +62,7 @@ ReactDOM.render(<App container={container} />, document.getElementById('root'));
 ## Hooks
 
  * [useContainer()](#usecontainer)
- * [useService(id)](#useallservicesid)
+ * [useService(id)](#useserviceid)
  * [useAllServices(id)](#useallservicesid)
  * [useNamedService(id, named)](#usenamedserviceid-named)
  * [useAllNamedServices(id, named)](#useallnamedservicesid-named)
@@ -84,7 +84,7 @@ import {useContainer} from '@redtea/react-inversify';
 function ReactComponent(props: {}) {
     const container = useContainer();
     const service = React.useMemo(
-        () => container.get<any>('service'),
+        () => container.get<Service>('service'),
         [container]
     );
     return service.getMessage();
@@ -95,7 +95,7 @@ function ReactComponent(props: {}) {
 
 [↑ back](#hooks)
 
-Get service by `id`. 
+Get service by identifier `id`. 
 
 (see [Container.get](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#the-container-api))
 
@@ -112,7 +112,7 @@ function ReactComponent(props: {}) {
 
 [↑ back](#hooks)
 
-Get all services by `id`. 
+Get all services by identifier `id`. 
 
 (see [Container.getAll](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#containergetall))
 
@@ -131,7 +131,7 @@ function ReactComponent(props: {}) {
 
 [↑ back](#hooks)
 
-Get service by `id` and `named`.
+Get service by identifier `id` and name `named`.
  
 (see [Container.getNamed](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#containergetnamed))
 
@@ -148,7 +148,7 @@ function ReactComponent(props: {}) {
 
 [↑ back](#hooks)
 
-Get all services by `id` and `named`.
+Get all services by identifier `id` and name `named`.
  
 (see [Container.getAllNamed](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#containergetallnamed))
 
@@ -167,7 +167,7 @@ function ReactComponent(props: {}) {
 
 [↑ back](#hooks)
 
-Get service by `id`, `key` и `value`.
+Get service by identifier `id`, tag key `key` и tag value `value`.
  
 (see [Container.getTagged](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#containergettagged))
 
@@ -184,7 +184,7 @@ function ReactComponent(props: {}) {
 
 [↑ back](#hooks)
 
-Get all services by `id`, `key` и `value`.
+Get all services by identifier `id`, tag key `key` и tag value `value`.
  
 (see [Container.getAllTagged](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#containergetalltagged))
 
@@ -261,7 +261,7 @@ class ReactComponent extends React.Component<Props> {
 
 [↑ back](#decorators)
 
-Get service by `id` and assign it to prop `propName`. 
+Get service by identifier `id` and assign it to prop `propName`. 
 
 (see [Container.get](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#the-container-api))
 
@@ -288,7 +288,7 @@ class ReactComponent extends React.Component<Props> {
 
 [↑ back](#decorators)
 
-Get all services by `id` and assign it to prop `propsName`.
+Get all services by identifier `id` and assign it to prop `propsName`.
  
 (see [Container.getAll](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#containergetall))
 
@@ -317,7 +317,7 @@ class ReactComponent extends React.Component<Props> {
 
 [↑ back](#decorators)
 
-Get service by `id`, `named` and assign it to prop `propName`. 
+Get named service by identifier `id`, name `named` and assign it to prop `propName`. 
 
 (see [Container.getNamed](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#containergetnamed))
 
@@ -344,7 +344,7 @@ class ReactComponent extends React.Component<Props> {
 
 [↑ back](#decorators)
 
-Get all services by `id`, `named` and assign it to prop `propName`. 
+Get all named services by identifier `id`, name `named` and assign it to prop `propName`. 
 
 (see [Container.getAllNamed](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#containergetallnamed))
 
@@ -369,11 +369,11 @@ class ReactComponent extends React.Component<Props> {
 }
 ```
 
-[↑ back](#decorators)
-
 #### injectTaggedService(propName, id, key, value, [options])
 
-Get service by `id`, `key`, `value` and assign it to prop `propName`. 
+[↑ back](#decorators)
+
+Get tagged service by identifier `id`, tag key `key`, tag value `value` and assign it to prop `propName`. 
 
 (see [Container.getTagged](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#containergettagged))
 
@@ -400,7 +400,7 @@ class ReactComponent extends React.Component<Props> {
 
 [↑ back](#decorators)
 
-Get all services by `id`, `key`, `value` and assign it to prop `propName`.
+Get all tagged services by identifier `id`, tag key `key`, tag value `value` and assign it to prop `propName`.
  
 (see [Container.getAllTagged](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#containergetalltagged))
 
@@ -458,11 +458,21 @@ class ReactComponent extends React.Component<Props> {
 
 Decorator options
 
+ * **forwardRef**(optional): [Ref forwarding](https://reactjs.org/docs/forwarding-refs.html)
+
 ```typescript
 {              
     forwardRef?: boolean;
 }
 ```
+example
+```typescript
+import {injectService} from '@redtea/react-inversify';
 
- * **forwardRef**(optional): [Ref forwarding](https://reactjs.org/docs/forwarding-refs.html)
-
+@injectService('service', TYPES.service, {forwardRef: true})
+class ReactComponent extends React.Component<{}> {
+    render() {
+        // ...
+    }
+}
+```

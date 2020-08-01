@@ -8,7 +8,7 @@
 
 [EN](https://github.com/org-redtea/react-inversify/blob/master/README.md)
 
-## Installation
+## Установка
 
 Yarn
 ```bash
@@ -19,7 +19,7 @@ Npm
 $ npm install -E @redtea/react-inversify
 ```
 
-## Example
+## Пример
 
 ```typescript
 import {useService} from '@redtea/react-inversify';
@@ -30,7 +30,7 @@ function ReactComponent(props: {}) {
 }
 ```
 
-## Before usage
+## Перед использованием
 
 Подключение контейнера
 
@@ -59,10 +59,10 @@ const container = new Container();
 ReactDOM.render(<App container={container} />, document.getElementById('root'));
 ```
 
-## Hooks
+## Хуки
 
  * [useContainer()](#usecontainer)
- * [useService(id)](#useallservicesid)
+ * [useService(id)](#useserviceid)
  * [useAllServices(id)](#useallservicesid)
  * [useNamedService(id, named)](#usenamedserviceid-named)
  * [useAllNamedServices(id, named)](#useallnamedservicesid-named)
@@ -72,7 +72,7 @@ ReactDOM.render(<App container={container} />, document.getElementById('root'));
 
 #### useContainer()
 
-[↑ back](#hooks)
+[↑ back](#хуки)
 
 Получение контейнера. 
 
@@ -84,7 +84,7 @@ import {useContainer} from '@redtea/react-inversify';
 function ReactComponent(props: {}) {
     const container = useContainer();
     const service = React.useMemo(
-        () => container.get<any>('service'),
+        () => container.get<Service>('service'),
         [container]
     );
     return service.getMessage();
@@ -93,9 +93,9 @@ function ReactComponent(props: {}) {
 
 #### useService(id)
 
-[↑ back](#hooks)
+[↑ back](#хуки)
 
-Получение сервис по `id`. 
+Получение сервис по идентификатору `id`. 
 
 (см. [Container.get](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#the-container-api))
 
@@ -110,9 +110,9 @@ function ReactComponent(props: {}) {
 
 #### useAllServices(id)
 
-[↑ back](#hooks)
+[↑ back](#хуки)
 
-Получение всех сервисов по `id`. 
+Получение всех сервисов по идентификатору `id`. 
 
 (см. [Container.getAll](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#containergetall))
 
@@ -129,9 +129,9 @@ function ReactComponent(props: {}) {
 
 #### useNamedService(id, named)
 
-[↑ back](#hooks)
+[↑ back](#хуки)
 
-Получение сервиса по `id` и `named`. 
+Получение сервиса по идентификатору `id` и названию `named`. 
 
 (см. [Container.getNamed](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#containergetnamed))
 
@@ -146,9 +146,9 @@ function ReactComponent(props: {}) {
 
 #### useAllNamedServices(id, named)
 
-[↑ back](#hooks)
+[↑ back](#хуки)
 
-Получение все сервисов по `id` и `named`. 
+Получение все сервисов по идентификатору `id` и названию `named`. 
 
 (см. [Container.getAllNamed](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#containergetallnamed))
 
@@ -165,9 +165,9 @@ function ReactComponent(props: {}) {
 
 #### useTaggedService(id, key, value)
 
-[↑ back](#hooks)
+[↑ back](#хуки)
 
-Получение сервиса по `id`, `key` и `value`.
+Получение сервиса по идентификатору `id`, ключу тега `key` и значению тега `value`.
  
 (см. [Container.getTagged](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#containergettagged))
 
@@ -182,9 +182,9 @@ function ReactComponent(props: {}) {
 
 #### useAllTaggedServices(id, key, value)
 
-[↑ back](#hooks)
+[↑ back](#хуки)
 
-Получение все сервисов по `id`, `key` и `value`. 
+Получение все сервисов по идентификатору `id`, ключу тега `key` и значению тега `value`.
 
 (см. [Container.getAllTagged](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#containergetalltagged))
 
@@ -201,7 +201,7 @@ function ReactComponent(props: {}) {
 
 #### useResolve(constructor)
 
-[↑ back](#hooks)
+[↑ back](#хуки)
 
 Создание экземпляра сервиса в контексте контейнера. 
 
@@ -216,7 +216,7 @@ function ReactComponent(props: {}) {
 }
 ```
 
-## Decorators
+## Декораторы
 
  * [injectContainer(propName, [options])](#injectcontainerpropname-options)
  * [injectService(propName, id, [options])](#injectservicepropname-id-options)
@@ -230,7 +230,7 @@ function ReactComponent(props: {}) {
 
 #### injectContainer(propName, [options])
 
-[↑ back](#decorators)
+[↑ back](#декораторы)
 
 Получение контейнера и запись его в prop `propName`. 
 
@@ -259,9 +259,9 @@ class ReactComponent extends React.Component<Props> {
 
 #### injectService(propName, id, [options])
 
-[↑ back](#decorators)
+[↑ back](#декораторы)
 
-Получение сервис по `id` и запись его в prop `propName`. 
+Получение сервис по идентификатору `id` и запись его в prop `propName`. 
 
 (см. [Container.get](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#the-container-api))
 
@@ -286,9 +286,9 @@ class ReactComponent extends React.Component<Props> {
 
 #### injectAllServices(propName, id, [options])
 
-[↑ back](#decorators)
+[↑ back](#декораторы)
 
-Получение всех сервисов по `id` и запись из в prop `propsName`. 
+Получение всех сервисов по идентификатору `id` и запись из в prop `propsName`. 
 
 (см. [Container.getAll](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#containergetall))
 
@@ -315,9 +315,9 @@ class ReactComponent extends React.Component<Props> {
 
 #### injectNamedService(propName, id, named, [options])
 
-[↑ back](#decorators)
+[↑ back](#декораторы)
 
-Получение сервиса по `id`, `named` и запись его в prop `propName`. 
+Получение сервиса по идентификатору `id`, названию `named` и запись его в prop `propName`. 
 
 (см. [Container.getNamed](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#containergetnamed))
 
@@ -342,9 +342,9 @@ class ReactComponent extends React.Component<Props> {
 
 #### injectAllNamedServices(propName, id, named, [options])
 
-[↑ back](#decorators)
+[↑ back](#декораторы)
 
-Получение все сервисов по `id`, `named` и запись их в prop `propName`. 
+Получение все сервисов по идентификатору `id`, названию `named` и запись их в prop `propName`. 
 
 (см. [Container.getAllNamed](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#containergetallnamed))
 
@@ -369,11 +369,11 @@ class ReactComponent extends React.Component<Props> {
 }
 ```
 
-[↑ back](#decorators)
-
 #### injectTaggedService(propName, id, key, value, [options])
 
-Получение сервиса по `id`, `key`, `value` и запись его в prop `propName`. (см. [Container.getTagged](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#containergettagged))
+[↑ back](#декораторы)
+
+Получение сервиса по идентификатору `id`, ключу тегу `key`, значению тегу `value` и запись его в prop `propName`. (см. [Container.getTagged](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#containergettagged))
 
 ```typescript
 import {injectTaggedService} from '@redtea/react-inversify';
@@ -396,9 +396,9 @@ class ReactComponent extends React.Component<Props> {
 
 #### injectAllTaggedServices(propName, id, key, value, [options])
 
-[↑ back](#decorators)
+[↑ back](#декораторы)
 
-Получение все сервисов по `id`, `key`, `value` и запись их в prop `propName`. 
+Получение все сервисов по идентификатору `id`, ключу тегу `key`, значению тегу `value` и запись их в prop `propName`. 
 
 (см. [Container.getAllTagged](https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md#containergetalltagged))
 
@@ -425,7 +425,7 @@ class ReactComponent extends React.Component<Props> {
 
 #### resolve(propName, constructor, [options])
 
-[↑ back](#decorators)
+[↑ back](#декораторы)
 
 Создание экземпляра сервиса в контексте контейнера и запись его в prop 'propName`. 
 
@@ -452,15 +452,25 @@ class ReactComponent extends React.Component<Props> {
 
 #### Options
 
-[↑ back](#decorators)
+[↑ back](#декораторы)
 
 Опции декоратора
+
+ * **forwardRef**(опционально): [Перенаправление ref](https://ru.reactjs.org/docs/forwarding-refs.html)
 
 ```typescript
 {              
     forwardRef?: boolean;
 }
 ```
+пример
+```typescript
+import {injectService} from '@redtea/react-inversify';
 
- * **forwardRef**(опционально): [Перенаправление ref](https://ru.reactjs.org/docs/forwarding-refs.html)
-
+@injectService('service', TYPES.service, {forwardRef: true})
+class ReactComponent extends React.Component<{}> {
+    render() {
+        // ...
+    }
+}
+```
