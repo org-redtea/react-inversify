@@ -9,6 +9,7 @@
   "sideEffects": true,
   "files": [
     "dist/",
+    "docs/",
     "types/",
     "README.md"
   ],
