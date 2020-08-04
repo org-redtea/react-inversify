@@ -4,6 +4,7 @@ Collection of decorators and hooks for interaction with [InversifyJS](https://gi
 
 <div align="center">
     <a href="https://www.npmjs.com/package/@redtea/react-inversify"><img src="https://img.shields.io/npm/v/@redtea/react-inversify.svg" alt="Version" /></a>
+    <a href="https://github.com/org-redtea/react-inversifyy"><img src="https://github.com/org-redtea/react-inversify/workflows/test/badge.svg?branch=master&event=push" alt="Test status" /></a>
 </div>
 
 [RU](https://github.com/org-redtea/react-inversify/blob/master/docs/ru/README.md)
