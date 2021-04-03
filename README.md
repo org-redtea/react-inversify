@@ -1,6 +1,6 @@
 # react-inversify
 
-Collection of decorators and hooks for interaction with [InversifyJS](https://github.com/inversify/InversifyJS/) container within [React](https://github.com/facebook/react) components.
+Use the power of [InversifyJS](https://github.com/inversify/InversifyJS/) in your [React](https://github.com/facebook/react) application.
 
 <div align="center">
     <a href="https://www.npmjs.com/package/@redtea/react-inversify"><img src="https://img.shields.io/npm/v/@redtea/react-inversify.svg" alt="Version" /></a>
@@ -9,15 +9,15 @@ Collection of decorators and hooks for interaction with [InversifyJS](https://gi
 
 [RU](https://github.com/org-redtea/react-inversify/blob/master/docs/ru/README.md)
 
-## Installation
+## :hammer_and_wrench: Installation
 
 Yarn
 ```bash
-$ yarn add -E @redtea/react-inversify
+$ yarn add -E inversify reflect-metadata @redtea/react-inversify
 ```
 Npm
 ```bash
-$ npm install -E @redtea/react-inversify
+$ npm install -E inversify reflect-metadata @redtea/react-inversify
 ```
 
 ## Example
