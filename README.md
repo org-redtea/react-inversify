@@ -13,11 +13,11 @@ Use the power of [InversifyJS](https://github.com/inversify/InversifyJS/) in you
 
 Yarn
 ```bash
-$ yarn add -E @redtea/react-inversify
+$ yarn add -E inversify reflect-metadata @redtea/react-inversify
 ```
 Npm
 ```bash
-$ npm install -E @redtea/react-inversify
+$ npm install -E inversify reflect-metadata @redtea/react-inversify
 ```
 
 ## Example
